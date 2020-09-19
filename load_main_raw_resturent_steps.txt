@@ -1,0 +1,21 @@
+drop table main_raw_resturent;
+create table main_raw_resturent 
+( raw_id             character varying(100),
+ dateAdded          character varying(100),
+ dateUpdated        character varying(100),
+ address            character varying(1000),
+ categories         character varying(1000),
+ primaryCategories  character varying(100),
+ city               character varying(100),
+ country            character varying(100),
+ keys               character varying(100),
+ latitude           character varying(100),
+ longitude          character varying(100),
+ name               character varying(100),
+ postalCode         character varying(100),
+ province           character varying(100),
+ sourceURLs         text,
+ websites           character varying(1000)
+ );
+
+ copy main_raw_resturent from '/resturant.csv'  WITH (FORMAT csv);
