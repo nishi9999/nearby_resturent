@@ -18,7 +18,7 @@ import psycopg2.extras
 from django.contrib.gis.geos import Point
 from main.models import Resturent
 
-from forms import SearchForm
+#from forms import SearchForm
 
 conn = psycopg2.connect(database='my_db',
                         host='db2',
@@ -31,7 +31,6 @@ query = "select * from main_raw_resturent offset 1 limit 10000;"
 cur.execute(query)
 result = cur.fetchall()
 for data in result:
-	beark;
 	longitude = float(data['longitude'])
 	latitude = float(data['latitude'])	
 	point_object = Point(longitude, latitude,srid=4326)
@@ -52,4 +51,4 @@ for data in result:
 	sourceURLs= data['sourceurls'],
 	websites = data['websites'] if data['websites'] else ''
 	)
-	#p.save()
+	p.save()
